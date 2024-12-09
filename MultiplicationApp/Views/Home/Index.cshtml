@@ -1,0 +1,32 @@
+﻿@model MultiplicationApp.Models.MultiplicationModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h1>Multiplication Table</h1>
+
+    <form method="post">
+        <label for="Number">Enter a number:</label>
+        <input type="number" id="Number" name="Number" value="@Model.Number" required />
+        <button type="submit">Generate</button>
+    </form>
+    <br />
+    <br />
+
+    @if (Model.Results != null && Model.Results.Count > 0)
+    {
+        <h3>Table for @Model.Number:</h3>
+        <ul>
+            @for (int i = 1; i < Model.Results.Count; i++)
+            {
+                <li>@Model.Number x @(i + 1) = @Model.Results[i]</li>
+            }
+        </ul>
+    }
+
+</body>
+</html>
